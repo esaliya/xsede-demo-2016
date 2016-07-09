@@ -37,7 +37,6 @@ sed -i "1i export BUILD_DIR_NAME=$BUILD_DIR_NAME" $BASHRC
 sed -i "1i export SPIDAL_DIR_NAME=$SPIDAL_DIR_NAME" $BASHRC
 
 source $BASHRC
-:<<COMMENT
 cd $OMPI_HOME
 ./configure --prefix=$BUILD --enable-mpi-java
 make j 4;make install
@@ -60,5 +59,4 @@ cd $COMMON_NAME
 mvn install
 cd ../$DAMDS_NAME
 mvn install
-COMMENT
 
