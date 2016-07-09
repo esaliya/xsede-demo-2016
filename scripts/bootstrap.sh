@@ -31,4 +31,5 @@ else
   pdsh -w ^$NODE_FILE scp -r $MASTER:~/$DEMO_NAME ~/
   pdsh -w ^$NODE_FILE $SCRIPT
   pdsh -w ^$NODE_FILE rm $SCRIPT
+  source ~/.bashrc
 fi
