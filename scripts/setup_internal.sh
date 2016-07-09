@@ -37,9 +37,10 @@ sed -i "1i export BUILD_DIR_NAME=$BUILD_DIR_NAME" $BASHRC
 sed -i "1i export SPIDAL_DIR_NAME=$SPIDAL_DIR_NAME" $BASHRC
 
 source $BASHRC
+:<<COMMENT
 cd $OMPI_HOME
 ./configure --prefix=$BUILD --enable-mpi-java
-make;make install
+make j 4;make install
 mvn install:install-file -DcreateChecksum=true -Dpackaging=jar -Dfile=$OMPI_HOME/ompi/mpi/java/java/mpi.jar -DgroupId=ompi -DartifactId=ompijavabinding -Dversion=1.10.1
 
 cd $SFT_DIR/$SPIDAL_DIR_NAME
@@ -59,5 +60,5 @@ cd $COMMON_NAME
 mvn install
 cd ../$DAMDS_NAME
 mvn install
-
+COMMENT
 
