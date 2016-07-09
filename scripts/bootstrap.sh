@@ -15,7 +15,7 @@ else
   DEMO_NAME=xsede-demo-2016
   NODE_FILE=$1
   MASTER=`cat $NODE_FILE | head -1 $NODEFILE`
-  
+
   install_ifne unzip
   cd ~/
   wget https://github.com/esaliya/xsede-demo-2016/archive/master.zip
