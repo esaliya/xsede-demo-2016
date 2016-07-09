@@ -29,6 +29,6 @@ else
   sudo bash -c 'echo ssh > /etc/pdsh/rcmd_default'
   SCRIPT=~/$DEMO_NAME/scripts/setup_internal.sh
   pdsh -w ^$NODE_FILE scp -r $MASTER:~/$DEMO_NAME ~/
-#  pdsh -w ^$NODE_FILE $SCRIPT
-#  pdsh -w ^$NODE_FILE rm $SCRIPT
+  pdsh -w ^$NODE_FILE $SCRIPT
+  pdsh -w ^$NODE_FILE rm $SCRIPT
 fi
