@@ -4,7 +4,7 @@ install_ifne(){
   pkg=$1
   if [ $(dpkg-query -W -f='${Status}' $pkg 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get -y install $pkg;
+    sudo apt-get install $pkg;
   fi
 }
 
@@ -48,7 +48,9 @@ else
   install_ifne pdsh
   sudo bash -c 'echo ssh > /etc/pdsh/rcmd_default'
 
+  sleep 2
   download_repo $DEMO_NAME
 
+  sleep 2
   setup $DEMO_NAME $NODE_FILE $MASTER
 fi

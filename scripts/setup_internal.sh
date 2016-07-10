@@ -18,6 +18,7 @@ SPIDAL_DIR_NAME=spidal
 BASHRC=~/.bashrc
 
 mkdir -p $SFT_DIR/{$BUILD_DIR_NAME,$SPIDAL_DIR_NAME}
+sleep 1
 cd $SFT_DIR
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.tar.gz
 wget http://ftp.wayne.edu/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
@@ -37,6 +38,7 @@ sed -i "1i export BUILD_DIR_NAME=$BUILD_DIR_NAME" $BASHRC
 sed -i "1i export SPIDAL_DIR_NAME=$SPIDAL_DIR_NAME" $BASHRC
 
 source $BASHRC
+sleep 2
 cd $OMPI_HOME
 ./configure --prefix=$BUILD --enable-mpi-java
 make j 4;make install
