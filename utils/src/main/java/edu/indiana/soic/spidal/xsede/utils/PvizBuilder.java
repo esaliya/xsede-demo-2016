@@ -18,13 +18,12 @@ public class PvizBuilder {
 
         Date date = new Date();
         String dateStr = date.toString().replace(' ', '-').replace(':','.');
-        System.out.println(dateStr);
 
         String name = com.google.common.io.Files.getNameWithoutExtension(pointsFile);
         String templateFile = "template.pviz";
         try(BufferedReader pr = Files.newBufferedReader(Paths.get(pointsFile), Charset.defaultCharset());
             BufferedReader tr = new BufferedReader(new InputStreamReader(PvizBuilder.class.getClassLoader().getResourceAsStream(templateFile)));
-            BufferedWriter bw = Files.newBufferedWriter(Paths.get(outDir, name + ".pviz"))) {
+            BufferedWriter bw = Files.newBufferedWriter(Paths.get(outDir, name + "_" + dateStr + ".pviz"))) {
 
             PrintWriter pw = new PrintWriter(bw, true);
             double[][] points = new double[numPoints][dim];
