@@ -41,7 +41,7 @@ source $BASHRC
 sleep 2
 cd $OMPI_HOME
 ./configure --prefix=$BUILD --enable-mpi-java
-make j 4;make install
+make j 8;make install
 mvn install:install-file -DcreateChecksum=true -Dpackaging=jar -Dfile=$OMPI_HOME/ompi/mpi/java/java/mpi.jar -DgroupId=ompi -DartifactId=ompijavabinding -Dversion=1.10.1
 
 cd $SFT_DIR/$SPIDAL_DIR_NAME
