@@ -18,6 +18,7 @@ download_repo(){
   mv "$DEMO_NAME"-master $DEMO_NAME
   rm -rf master.zip
   sed -i "/5k.bin/c\DistanceMatrixFile=\\${HOME}\/\\${DEMO_NAME}\/examples\/data\/5k.bin" $HOME/$DEMO_NAME/examples/damds/config.properties
+  sed -i "/damds-points.txt/c\PointsFile=\\${HOME}\/\\${DEMO_NAME}\/examples\/damds\/damds-points.txt" $HOME/$DEMO_NAME/examples/damds/config.properties
 }
 
 setup(){
