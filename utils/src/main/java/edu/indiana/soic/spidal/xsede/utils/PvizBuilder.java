@@ -2,13 +2,11 @@ package edu.indiana.soic.spidal.xsede.utils;
 
 import com.google.common.base.Strings;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class PvizBuilder {
@@ -18,10 +16,14 @@ public class PvizBuilder {
         int numPoints = Integer.parseInt(args[2]);
         int dim = Integer.parseInt(args[3]);
 
+        Date date = new Date();
+        String dateStr = date.toString().replace(' ', '-').replace(':','.');
+        System.out.println(dateStr);
+
         String name = com.google.common.io.Files.getNameWithoutExtension(pointsFile);
         String templateFile = "template.pviz";
         try(BufferedReader pr = Files.newBufferedReader(Paths.get(pointsFile), Charset.defaultCharset());
-            BufferedReader tr = Files.newBufferedReader(Paths.get(templateFile), Charset.defaultCharset());
+            BufferedReader tr = new BufferedReader(new InputStreamReader(PvizBuilder.class.getClassLoader().getResourceAsStream(templateFile)));
             BufferedWriter bw = Files.newBufferedWriter(Paths.get(outDir, name + ".pviz"))) {
 
             PrintWriter pw = new PrintWriter(bw, true);
