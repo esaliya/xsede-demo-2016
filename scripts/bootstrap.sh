@@ -29,8 +29,8 @@ setup(){
   SCRIPT=~/$DEMO_NAME/scripts/setup_internal.sh
   pdsh -w ^$NODE_FILE scp $MASTER:$NODE_FILE $NODE_FILE
   pdsh -w ^$NODE_FILE scp -r $MASTER:~/$DEMO_NAME ~/
-  #pdsh -w ^$NODE_FILE chmod +x $DEMO_NAME/scripts/*.sh
-  #pdsh -w ^$NODE_FILE $SCRIPT
+  pdsh -w ^$NODE_FILE chmod +x $DEMO_NAME/scripts/*.sh
+  pdsh -w ^$NODE_FILE $SCRIPT
 
 }
 
