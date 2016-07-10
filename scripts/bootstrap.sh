@@ -4,7 +4,7 @@ install_ifne(){
   pkg=$1
   if [ $(dpkg-query -W -f='${Status}' $pkg 2>/dev/null | grep -c "ok installed") -eq 0 ];
   then
-    sudo apt-get install $pkg;
+    sudo apt-get -y install $pkg;
   fi
 }
 
