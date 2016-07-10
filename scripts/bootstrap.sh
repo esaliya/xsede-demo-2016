@@ -17,6 +17,7 @@ download_repo(){
   unzip master.zip
   mv "$DEMO_NAME"-master $DEMO_NAME
   rm -rf master.zip
+  sed -i "/5k.bin/c\DistanceMatrixFile=\\${HOME}\/\\${DEMO_NAME}\/examples\/data\/5k.bin" $HOME/$DEMO_HOME/examples/damds/config.properties
 }
 
 setup(){
